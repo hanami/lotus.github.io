@@ -8,7 +8,7 @@ excerpt: >
 
 ---
 
-After 17 years dedicated to open source Ruby, Luca Guidi [has stepped down](https://discourse.hanamirb.org/t/stepping-down-from-hanami/933?u=jodosha) from the Hanami and dry-rb projects.
+After 17 years dedicated to open source Ruby, Luca Guidi [has stepped down](https://discourse.hanamirb.org/t/stepping-down-from-hanami/933?u=jodosha) from the Hanami and [dry-rb](https://dry-rb.org) projects.
 
 In Luca’s place, I will step up as Hanami project lead. I also remain a committed member of the dry-rb core team.
 
