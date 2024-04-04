@@ -10,7 +10,7 @@ excerpt: >
 
 After 17 years dedicated to open source Ruby, Luca Guidi [has stepped down](https://discourse.hanamirb.org/t/stepping-down-from-hanami/933?u=jodosha) from the Hanami and dry-rb projects.
 
-In Luca’s place, I will step up as Hanami project lead, and I remain a committed member of the dry-rb core team.
+In Luca’s place, I will step up as Hanami project lead. I also remain a committed member of the dry-rb core team.
 
 As for Hanami, we’re continuing on the path we’ve followed over the last few years. [2.1 is now out the door](/blog/2024/02/27/hanami-210/), and 2.2 is next. As we plan for this release, you can look forward to seeing updates [on our forum](https://discourse.hanamirb.org/).
 
