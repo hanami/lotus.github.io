@@ -1,11 +1,11 @@
 ---
 title: Hanami 2.2.0.beta1
-date: 2024-07-16 20:00:00 UTC
+date: 2024-07-16 12:00:00 UTC
 tags: announcements
 author: Tim Riley
 image: true
 excerpt: >
-  We’re close to completing the full stack Hanami vision. Introducing our database layer and operations.
+  We’re close to completing the full stack Hanami 2 vision. Introducing our database layer and operations.
 ---
 
 Earlier this year we introduced our view layer with [Hanami 2.1](/blog/2024/02/27/hanami-210/). After some intensive months of work, we’re back again and ready to share to complete the stack. With today’s release of Hanami 2.2.0.beta1, we’re delighted to offer you a preview of our database layer, as well as operations, a new tool for organising your business logic!
@@ -18,9 +18,9 @@ Our goal for Hanami 2.2 is to provide the world’s best ROM experience, one tha
 
 With 2.2, I believe we’ve achieved all of these. Let’s take a look at how it’s come togther.
 
-When we generate a new app, we’ll have a ready-to-go `DATABASE_URL` set in our `.env`. Hanami defaults to SQLite, but Postgres is also supported and MySQL is coming soon.
+When you generate a new app, you’ll have a ready-to-go `DATABASE_URL` set in your `.env`. Hanami defaults to SQLite.  Postgres is also supported, and MySQL is coming soon.
 
-Let’s create a migration with `bundle exec hanami generate migration`, and fill it in:
+You can create a migration with `bundle exec hanami generate migration`, and fill it in:
 
 ```ruby
 ROM::SQL.migration do
@@ -33,9 +33,9 @@ ROM::SQL.migration do
 end
 ```
 
-Now we can migrate our database with `hanami db migrate`.
+Now you can migrate your database with `hanami db migrate`.
 
-After this, we can generate a new relation: `hanami generate relation posts`. Relations describe our low-level data sources. Here, this means our database tables. Relations are also our place to add reusable, chainable methods that we can use to build expressive, high-level queries. Let’s add something simple to get started:
+After this, you can generate a new relation: `hanami generate relation posts`. Relations describe your low-level data sources. Here, this means your database tables. Relations are also your place to add reusable, chainable methods that you can use to build expressive, high-level queries. Add something simple to get started:
 
 ```ruby
 module MyApp
@@ -54,7 +54,7 @@ module MyApp
 end
 ```
 
-Relations are the primary component of our app’s database layer. While we can interact with them directly across our app, it’s better to build a repo. With repos, we get to build our very own API to your persisted data, so we can better manage how it’s accessed across your app. We can build a post repo with `hanami generate repo postss`. Here we can define a method to return our latest posts:
+Relations are the primary component of your app’s database layer. While you can interact with them directly across your app, it’s better to build a repo. With repos, you get to build your very own API to your persisted data, so you can better manage how it’s accessed across your app. You can build a post repo with `hanami generate repo posts`. Here you can define a method to return your latest posts:
 
 ```ruby
 module MyApp
@@ -68,7 +68,7 @@ module MyApp
 end
 ```
 
-We can include this repo as a dependency of any other class in our Hanami app, which is how we can access our data wherever we need. For example, in a view:
+You can include this repo as a dependency of any other class in your app, which is how you can access your data wherever you need. In a view, for example:
 
 ```ruby
 module MyApp
@@ -86,9 +86,9 @@ module MyApp
 end
 ```
 
-Our repo methods return _structs_: plain old value objects, just data, no live connection back to the database. This means we can be confident in passing them all around our app, knowing things like accidental n+1 queries are a thing of the past.
+Repo methods return _structs_: plain old value objects, just data, no live connection back to the database. This means you can be confident in passing them all around your app, knowing things like accidental n+1 queries are a thing of the past.
 
-We can customize these structs by creating our own classes. Let’s make one for our posta with `hanami generate struct post`. Inside these classes, we can access any of the attributes selected in our repo’s corresponding database query.
+You can customize these structs by creating your own classes. Make one for your posts with `hanami generate struct post`. Inside these classes, you can access any of the attributes selected in your repo’s corresponding database query.
 
 ```ruby
 module MyApp
@@ -102,22 +102,37 @@ module MyApp
 end
 ```
 
-With relations, repos, and structs, we have a home for every piece of our data logic, and the foundation for a database layer that can evolve TODO BLAH BLAH
+With relations, repos, structs and more, you now have a home for every piece of your data logic, and the foundation for a database layer that can evolve to meet even the most demanding needs.
 
-## Slice your database
+## Your DB is our command
+
+You can manage the full lifecycle of your database thanks to this complete set of new CLI commands:
+
+- `hanami db create`
+- `hanami db drop`
+- `hanami db migrate`
+- `hanami db prepare`
+- `hanami db seed`
+- `hanami db structure dump`
+- `hanami db structure load`
+- `hanami db version`
+
+## Slice it your way
 
 It wouldn’t be a new Hanami feature if it didn’t come with first-class support for [slices](https://guides.hanamirb.org/v2.2/app/slices/), our built-in tool for modularising apps.
 
-With Hanami 2.2’s new database layer, we can choose to:
+With Hanami 2.2’s new database layer, you can choose to:
 
-- Share a database, but have each slice provide their own relations, so they can choose how much of the database to expose (this is the default)
+- Share a database, but have each slice provide their own relations, so they can choose how much of the database to expose (the default)
 - Use a dedicated database for certain slices (as easy as creating a `SLICE_NAME__DATABASE_URL` env var)
 - Share a single set of relations across all slices, for a simpler, blended development experience
 - Or any combination of the above!
 
+See [this forum post](https://discourse.hanamirb.org/t/integrating-rom-into-hanami-2-2/971) to learn more about these various slice formations. What we’ve delivered in this beta matches exactly the proposal in this post.
+
 ## Introducing operations
 
-With Hanami 2.2 we’re debuting [dry-operation](https://github.com/dry-rb/dry-operation). With dry-operation, we have  streamlined tool for organising our business logic into flexible, composable objects with safe chaining of internal steps.
+With Hanami 2.2 we’re debuting [dry-operation](https://github.com/dry-rb/dry-operation). With dry-operation, you have  a streamlined tool for organising your business logic into flexible, composable objects with safe chaining of internal steps.
 
 dry-operation is the long-awaited successor to the venerable [dry-transaction](http://dry-rb.org/gems/dry-transaction) gem, I’m deeply grateful to [Marc Busqué](https://github.com/waiting-for-dev) for building it. Even though it’s not quite fully released, we’re including it as a preview via a GitHub source in your new app’s `Gemfile`.
 
@@ -153,7 +168,7 @@ module MyApp
 end
 ```
 
-Every operation returning a `Success` or `Failure` is great for consistency (every caller is required to consider both sides), but also for expressiveness: we can now turn to pattern matching on results in our actions, for example:
+Every operation returning a `Success` or `Failure` is great for consistency (every caller is required to consider both sides), but also for expressiveness. You can now turn to pattern matching on results in your actions, for example:
 
 ```ruby
 module MyApp
@@ -180,7 +195,7 @@ end
 
 Operations are natively integrated with Hanami’s database layer, providing `transaction do ... end` to ensure database changes are written together, and that an intervening `Failure` will automatically abort the transaction.
 
-With operations not only built from flows of steps, but also able to be composed together themslves into higher-level flows, we have a powerful new building block for business logic in Hanami apps.
+With operations built from flows of steps, but also themselves able to be chained into higher-level flows, you have a powerful new building block for business logic in your Hanami apps.
 
 ## We need your help!
 
@@ -203,6 +218,7 @@ Today we’re releasing the following gems:
 - hanami-assets v2.2.0.beta1
 - hanami-cli v2.2.0.beta1
 - hanami-controller v2.2.0.beta1
+- hanami-db v2.2.0.beta1
 - hanami-reloader v2.2.0.beta1
 - hanami-router v2.2.0.beta1
 - hanami-rspec v2.2.0.beta1
@@ -227,8 +243,11 @@ For specific changes in this release, please see each gem’s own CHANGELOG.
 Thank you to these fine people for contributing to this release!
 
 - [Adam Lassek](https://github.com/alassek)
+- [Damian C. Rossney](https://github.com/dcr8898)
+- [Krzysztof](https://github.com/krzykamil)
 - [Marc Busqué](https://github.com/waiting-for-dev)
 - [Sean Collins](https://github.com/cllns)
+- [Sven Schwyn](https://github.com/svoop)
 - [Tim Riley](https://github.com/timriley)
 
 ## Thank you
