@@ -8,17 +8,17 @@ excerpt: >
   We’re close to completing the full stack Hanami 2 vision. Introducing our database layer and operations.
 ---
 
-Earlier this year we introduced our view layer with [Hanami 2.1](/blog/2024/02/27/hanami-210/). After some intensive months of work, we’re back again and ready to share to complete the stack. With today’s release of Hanami 2.2.0.beta1, we’re delighted to offer you a preview of our database layer, as well as operations, a new tool for organising your business logic!
+Earlier this year we introduced our view layer with [Hanami 2.1](/blog/2024/02/27/hanami-210/). After some intensive months of work, we’re back again and ready to complete the stack! With today’s release of Hanami 2.2.0.beta1, we’re delighted to offer you a preview of our database layer, as well our new tool for organising business logic.
 
 ## Introducing our database layer
 
-Hanami’s database layer is based on [Ruby Object Mapper](https://rom-rb.org) (aka ROM), a mature and flexible data persistence toolkit for Ruby.
+Hanami’s database layer is based on [Ruby Object Mapper](https://rom-rb.org) (ROM), a mature and flexible data persistence toolkit for Ruby.
 
 Our goal for Hanami 2.2 is to provide the world’s best ROM experience, one that feels thoroughly at home within Hanami apps. We want to make it easy for you to get started and enjoy the benefits that come from your separating persistence logic from your business concerns. At the same time, we also want to make sure you can use any ROM feature without having to eject yourself from Hanami’s standard integration.
 
-With 2.2, I believe we’ve achieved all of these. Let’s take a look at how it’s come togther.
+With 2.2, we believe we’ve achieved this. Let’s take a look at how it has come togther.
 
-When you generate a new app, you’ll have a ready-to-go `DATABASE_URL` set in your `.env`. Hanami defaults to SQLite.  Postgres is also supported, and MySQL is coming soon.
+When you generate a new app, you’ll have a ready-to-go `DATABASE_URL` set in your `.env`. Our default for new apps is SQLite, with Postgres also supported, and MySQL is coming soon.
 
 You can create a migration with `bundle exec hanami generate migration`, and fill it in:
 
@@ -35,7 +35,7 @@ end
 
 Now you can migrate your database with `hanami db migrate`.
 
-After this, you can generate a new relation: `hanami generate relation posts`. Relations describe your low-level data sources. Here, this means your database tables. Relations are also your place to add reusable, chainable methods that you can use to build expressive, high-level queries. Add something simple to get started:
+After this, you can generate a new relation: `hanami generate relation posts`. Relations describe your low-level data sources. Here, this means your database tables. Relations are also your place to add reusable, chainable methods that you can use as the building blocks for expressive, higher-level queries. Add something simple to get started:
 
 ```ruby
 module MyApp
@@ -54,7 +54,7 @@ module MyApp
 end
 ```
 
-Relations are the primary component of your app’s database layer. While you can interact with them directly across your app, it’s better to build a repo. With repos, you get to build your very own API to your persisted data, so you can better manage how it’s accessed across your app. You can build a post repo with `hanami generate repo posts`. Here you can define a method to return your latest posts:
+Relations are the primary component of your app’s database layer. While you can interact with them directly, it’s better to build a repo. With repos, you get to build your very own persistence API, so you can better manage how your data is accessed across your app. You can build a post repo with `hanami generate repo posts`. Here you can define a method to return your latest posts, built from the methods in your relation:
 
 ```ruby
 module MyApp
@@ -86,7 +86,7 @@ module MyApp
 end
 ```
 
-Repo methods return _structs_: plain old value objects, just data, no live connection back to the database. This means you can be confident in passing them all around your app, knowing things like accidental n+1 queries are a thing of the past.
+Repo methods return structs: plain old value objects, just data, with no live connection back to the database. This means you can be confident in passing them all around your app, knowing things like accidental n+1 queries are a thing of the past.
 
 You can customize these structs by creating your own classes. Make one for your posts with `hanami generate struct post`. Inside these classes, you can access any of the attributes selected in your repo’s corresponding database query.
 
@@ -132,9 +132,9 @@ See [this forum post](https://discourse.hanamirb.org/t/integrating-rom-into-hana
 
 ## Introducing operations
 
-With Hanami 2.2 we’re debuting [dry-operation](https://github.com/dry-rb/dry-operation). With dry-operation, you have  a streamlined tool for organising your business logic into flexible, composable objects with safe chaining of internal steps.
+With Hanami 2.2 we’re debuting [dry-operation](https://github.com/dry-rb/dry-operation). With dry-operation, you have  a streamlined tool for organising your business logic into flexible, composable objects made from flows of internal steps.
 
-dry-operation is the long-awaited successor to the venerable [dry-transaction](http://dry-rb.org/gems/dry-transaction) gem, I’m deeply grateful to [Marc Busqué](https://github.com/waiting-for-dev) for building it. Even though it’s not quite fully released, we’re including it as a preview via a GitHub source in your new app’s `Gemfile`.
+dry-operation is the long-awaited successor to the venerable [dry-transaction](http://dry-rb.org/gems/dry-transaction) gem, and I’m deeply grateful to [Marc Busqué](https://github.com/waiting-for-dev) for building it. Even though it’s not quite fully released, we’re including it as a preview via a GitHub source in your new app’s `Gemfile`.
 
 Creating an operation is as easy as `hanami generate operation posts.create_post`. Operations can be built from multiple steps, with each returning a `Result`:
 
