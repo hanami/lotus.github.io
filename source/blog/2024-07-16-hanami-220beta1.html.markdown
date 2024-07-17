@@ -157,7 +157,7 @@ module MyApp
       def validate(attributes)
         # Validate attributes here.
 
-        # Return a `Failure` and execution above will short-ciruit
+        # Return a `Failure` and execution above will short-circuit
         #   Failure(errors: ["not valid"])
 
         # Return a `Success` and execution will continue with the value unwrapped
