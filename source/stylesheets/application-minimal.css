@@ -291,26 +291,6 @@ table.status td {
   font-size: 16px;
 }
 
-.gitter-open-chat-button {
-  background-color: #534a7f;
-  border-color: #443d68;
-}
-
-.gitter-open-chat-button:focus, .gitter-open-chat-button:hover {
-  background-color: #48416f;
-  text-decoration: none;
-}
-
-.gitter-chat-embed {
-  z-index: 1000;
-}
-
-@media (max-width: 768px) {
-  .gitter-open-chat-button {
-    display: none;
-  }
-}
-
 .hanami-release-date {
   margin-top: 1em;
   font-weight: 200;
