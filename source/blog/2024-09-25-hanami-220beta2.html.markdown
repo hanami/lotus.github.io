@@ -57,7 +57,7 @@ For more advanced cases, you can configure gateways explicitly, inside your `:db
 Hanami.app.configure_provider :db do
   # Explicitly configure a gateway
   config.gateway :artifacts do |gw|
-    # If database_url is not given, it will still be filled from `ENV["DATABASE_URL__ARTIFACTS"]`
+    # If not configured, will still be filled from `ENV["DATABASE_URL__ARTIFACTS"]`
     gw.database_url = "..."
 
     # Specify an adapter to use
@@ -102,7 +102,9 @@ module MyApp
           end
 
           rule(:birth_date) do
-            key.failure("you must be 18 years or older") if value < (Date.today << (12 * 18))
+            if value < (Date.today << (12 * 18))
+              key.failure("you must be 18 years or older")
+            end
           end
         end
       end
