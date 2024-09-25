@@ -1,6 +1,6 @@
 ---
 title: Hanami 2.2.0.beta2
-date: 2024-07-16 13:00:00 UTC
+date: 2024-09-25 13:00:00 UTC
 tags: announcements
 author: Tim Riley
 image: true
@@ -18,14 +18,15 @@ Now you can generate a new Hanami app with `hanami new my_app --database=mysql` 
 
 With beta1, we introduced the idea of distinct databases per slice. Now with beta2, you can mix and match multiple databases within _any_ slice! This comes courtesy of ROM’s gateways, which you can now setup as part of Hanami’s database layer.
 
-Gateways in ROM represent a connection to a distinct database, and you can use them within your relations by declaring a `gateway`:
+Gateways in ROM represent a connection to a distinct database. You can use them within your relations by declaring a `gateway`:
 
 ```ruby
 module MyApp
   module Relations
-    class Posts < MyApp::DB::Relation
-      # If this is not given, it presumes a `:default` gateway
-      gateway :my_gateway
+    class Uploads < MyApp::DB::Relation
+      # Use the `uploads` table from the `:artifacts` gateway.
+      gateway :artifacts
+      schema :uploads, infer: true
     end
   end
 end
@@ -77,6 +78,8 @@ end
 ```
 
 All `hanami db` commands are multi-gateway-aware. By default, they will operate on all configured databases for an app. You can also target a specific gateway’s database by passing the `--app --gateway=gw_name` or `--slice=slice_name --gateway=gw_name` arguments.
+
+You can also pass a `--gateway` argument to `hanami generate migration` to generate a migration for a specific gateway.
 
 For more detail on gateway configuration, [see this pull request](https://github.com/hanami/hanami/pull/1452).
 
