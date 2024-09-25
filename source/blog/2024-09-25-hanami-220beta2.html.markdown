@@ -137,7 +137,7 @@ We’ve already updated our [getting started guides](https://guides.hanamirb.org
 
 ## What’s next? A release candidate, then 2.2.0.
 
-Our current goal is to have Hanami 2.2.0 ready by [RubyConf](https://rubyconf.org), where Sean Collins will be giving [an introductory workshop] (see Day 2, Salon A1).
+Our current goal is to have Hanami 2.2.0 ready by [RubyConf](https://rubyconf.org), where Sean Collins will be giving [an introductory workshop](https://rubyconf.org/schedule/) (Day 2, Salon A1).
 
 Between now and then, we plan to make one more release: a single release candidate, towards the end of October. Take a look at [our project board](https://github.com/orgs/hanami/projects/6/views/1) to see the work we have remaining.
 
