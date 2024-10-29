@@ -1,0 +1,92 @@
+---
+title: Hanami 2.2.0.rc1
+date: 2024-10-29 12:00:00 UTC
+tags: announcements
+author: Tim Riley
+image: true
+excerpt: >
+  Last stop before 2.2.0.
+---
+
+Our work on Hanami 2.2 continues, and today we’re very happy to offer a release candidate. This is our last stop before 2.2.0, which we plan to release this time next week!
+
+In this release, we’ve continued to refine our new database layer:
+
+- You can now configure gateways ([introduced in beta2](/blog/2024/09/25/hanami-220beta2/)) with a hash of `connection_options`.
+- Config from matching gateways in parent slices is applied to gateways in child slices, allowing you to configure shared gateways in one place only.
+- `Hanami::Struct` instances provide a convenient `#to_json` method.
+- A [DatabaseCleaner](https://github.com/DatabaseCleaner/database_cleaner) setup is generated in new apps, to keep your test database in a predictable state between RSpec tests.
+- When running `hanami db` CLI commands in development mode, they will automatically apply to your test database as well, to keep it in sync and ready for your tests.
+- A sample `config/db/seeds.rb` is generated in new apps.
+- The `db seed` CLI command prints a notice if it does not find expected seed files.
+- Generated migrations include a `change do` block, ready for your migration code.
+- The default database URL for MySQL databases works out of the box for MySQL as installed by [Homebrew](https://brew.sh).
+
+We’ve enhanced more of our CLI experience:
+
+- You can set the Hanami env for all CLI commands by passing an `--env` or `-e` option, which is much nicer than prefixing command with a `HANAMI_ENV=` environment variable (which still works, mind you).
+- The `generate action` and `generate slice` CLI commands provide a `--skip-route` option
+- `generate` subcommands are available only if the counterpart gem is bundled (e.g. `generate action` will only appear if you have hanami-controller bundled).
+- IRB is now the default engine for `hanami console`.
+
+Lastly, we’ve been readying [dry-operation](https://github.com/dry-rb/dry-operation) for its debut:
+
+- Fixed an issue where failures were not handled correctly inside `transaction` blocks
+- Automatically integrate operations with the ROM setup available in Hanami apps, so `transaction` blocks are available with no boilerplate required.
+
+## We need your help!
+
+This is our last release before 2.2.0, so now more than ever, we need your help with testing, especially if you want to work with databases. With this release, we believe we’ve now covered every essential aspect of database configuration and usage. Please put this to the test!
+
+We’ve already updated our [getting started guides](https://guides.hanamirb.org/v2.2/introduction/getting-started/) to walk you through your first Hanami 2.2 app, database layer included. Please give this a try, then [let us know how you go](https://discourse.hanamirb.org).
+
+## What’s next? 2.2.0.
+
+We’re aiming to release 2.2.0 next week, and complete our epic journey towards the Hanami 2 full stack vision. Mark the date!
+
+## What’s included?
+
+Today we’re releasing the following gems:
+
+- hanami v2.2.0.rc1
+- hanami-assets v2.2.0-rc.1 (npm package)
+- hanami-assets v2.2.0.rc1
+- hanami-cli v2.2.0.rc1
+- hanami-controller v2.2.0.rc1
+- hanami-db v2.2.0.rc1
+- hanami-reloader v2.2.0.rc1
+- hanami-router v2.2.0.rc1
+- hanami-rspec v2.2.0.rc1
+- hanami-utils v2.2.0.rc1
+- hanami-validations v2.2.0.rc1
+- hanami-view v2.2.0.rc1
+- hanami-webconsole v2.2.0.rc1
+
+For specific changes in this release, please see each gem’s own CHANGELOG.
+
+## How can I try it?
+
+```shell
+> gem install hanami --pre
+> hanami new my_app
+> cd my_app
+> bundle exec hanami dev
+```
+
+## Contributors
+
+Thank you to these fine people for contributing to this release!
+
+- [Adam Lassek](https://github.com/alassek)
+- [Anderson Saunders](https://github.com/Andsbf) — congrats on your first contributions, Anderson!
+- [François Beausoleil](https://github.com/francois) — congrats on your first contributions, François!
+- [Krzysztof Piotrowski](https://github.com/krzykamil)
+- [Kyle Plump](https://github.com/kyleplump)
+- [Seb Wilgosz](https://github.com/swilgosz)
+- [Tim Riley](https://github.com/timriley)
+
+A special thank you also to [Ernesto Tagwerker](https://github.com/etagwerker) for making a DatabaseCleaner release for us, and [Rémy Coutable](https://github.com/rymai) for making a Guard release for us.
+
+## Thank you
+
+Thank you as always for supporting Hanami! We can’t wait to hear from you about this release! 🌸
