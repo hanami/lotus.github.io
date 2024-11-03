@@ -104,7 +104,7 @@ end
 
 With relations, repos, structs and more, you now have a home for every piece of your data logic, and the foundation for a database layer that can evolve to meet even the most demanding needs.
 
-Hanami’s database layer is so capable because it’s based on [Ruby Object Mapper](https://rom-rb.org) (ROM), a mature and flexible data persistence toolkit for Ruby. With Hanami 2.2, we are proud to provide the world’s very best ROM experience, one that feels thorouhgly at home within Hanami apps. We make it easy for you to get started and enjoy the benefits that come from separating your persistence logic from your app’s business concerns, while also making sure you can use every ROM feature without having to “eject” yourself from its integration with Hanami.
+Hanami’s database capabilities come from [ROM](https://rom-rb.org) (Ruby Object Mapper), a mature and flexible data persistence toolkit for Ruby. With Hanami 2.2, we are proud to provide the world’s very best ROM experience, one that feels thorouhgly at home within Hanami apps. We make it easy for you to get started and enjoy the benefits of a dedicated persistence layer, while making sure you can still use every ROM feature without ever having to eject yourself from our integration of ROM with Hanami.
 
 ## Your DB is our command
 
