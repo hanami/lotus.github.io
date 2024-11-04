@@ -235,14 +235,17 @@ Thank you also to these amazing people for contributing to Hanami 2.2!
 
 - [Adam Lassek](https://github.com/alassek)
 - [Anderson Saunders](https://github.com/Andsbf)
+- [Chris Flipse](https://github.com/cflipse)
 - [Damian C. Rossney](https://github.com/dcr8898)
 - [François Beausoleil](https://github.com/francois)
 - [Krzysztof Piotrowski](https://github.com/krzykamil)
 - [Kyle Plump](https://github.com/kyleplump)
 - [Marc Busqué](https://github.com/waiting-for-dev)
+- [Paweł Świątkowski](https://github.com/katafrakt)
 - [Sean Collins](https://github.com/cllns)
 - [Seb Wilgosz](https://github.com/swilgosz)
 - [Sven Schwyn](https://github.com/svoop)
+- [Tom de Bruijn](https://github.com/tombruijn)
 
 Thanks especially to [Adam](https://github.com/alassek), [Sean](https://github.com/cllns) and [Marc](https://github.com/waiting-for-dev). I couldn’t have made this release without you.
 
