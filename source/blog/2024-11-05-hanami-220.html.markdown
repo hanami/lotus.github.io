@@ -1,5 +1,5 @@
 ---
-title: "Hanami 2.2.0: Persistence pays off"
+title: "Hanami 2.2: Persistence pays off"
 date: 2024-11-05 12:00:00 UTC
 tags: announcements
 author: Tim Riley
@@ -54,7 +54,7 @@ module MyApp
 end
 ```
 
-Relations are the primary component of your app’s database layer. While you can interact with them directly, it’s better to build a repo. With repos, you get to build your very own database interface, so you can better manage how your data is accessed across your app. You can build a post repo with `hanami generate repo posts`. Here you can define a method to return your latest posts, built using the methods in your relation:
+While you can interact with relations directly, it’s better to build a repo. With repos, you get to build your very own database interface, so you can better manage how your data is accessed across your app. You can build a post repo with `hanami generate repo posts`. Here you can define a method to return your latest posts, built using the methods in your relation:
 
 ```ruby
 module MyApp
@@ -88,7 +88,7 @@ end
 
 Repo methods return structs: plain old value objects, just data, with no live connection back to the database. This means you can be confident in passing them all around your app, knowing things like accidental n+1 queries are a thing of the past.
 
-You can customize these structs by creating your own matching classes. Make one for your posts with `hanami generate struct post`. Inside these classes, you can access any of the attributes selected in your repo’s corresponding database query.
+You can optionally customize these structs by creating your own matching classes. Make one for your posts with `hanami generate struct post`. Inside these classes, you can access any of the attributes selected in your repo’s corresponding database query.
 
 ```ruby
 module MyApp
@@ -133,7 +133,7 @@ With the new database layer, you can choose your own mix of one or more database
 
 ## Smooth operations
 
-Along with Hanami 2.2, we’re excited to debut the brand new [dry-operation](https://dry-rb.org/gems/dry-operation) gem. With dry-operation, you have a streamlined tool for organizing your business logic into flexible, composable objects made from flows of internal steps.
+Along with Hanami 2.2, we’re excited to debut the brand new [dry-operation 1.0](https://dry-rb.org/gems/dry-operation). With dry-operation, you have a streamlined tool for organizing your business logic into flexible, composable objects made from flows of internal steps.
 
 Creating an operation is as easy as `hanami generate operation posts.create_post`. Operations can be built from multiple steps, with each returning a `Result`:
 
@@ -196,6 +196,8 @@ Operations are natively integrated with Hanami’s database layer, providing `tr
 
 dry-operation is the long-awaited successor to the venerable [dry-transaction](http://dry-rb.org/gems/dry-transaction) gem, and I’m deeply grateful to [Marc Busqué](https://github.com/waiting-for-dev) for building it.
 
+dry-operation is a first class part of Hanami, but like the other parts of the framework, if you don’t need it, you can remove it. If you’d rather use another tool to organize your business logic, you’re welcome to remove `"dry-operation"` from your `Gemfile` and replace it with something else.
+
 ## More up our sleeve
 
 Databases and operations may be the highlights, but Hanami 2.2 brings several other improvements:
@@ -209,10 +211,11 @@ Databases and operations may be the highlights, but Hanami 2.2 brings several ot
 - Inside providers, you can now refer to the slice as `slice`, rather than `target`.
 - Properly handle routes with differing segment captures at the same location.
 - Various minor fixes to our form helpers.
+- Dropped support for Ruby 3.0.
 
 ## Full stack Hanami is here today!
 
-With Hanami 2.2’s database layer and operations, our fresh, full stack vision for Ruby apps is now complete! We’d love for you to dive in and give it a try.
+With Hanami’s database layer and operations, our fresh, full stack vision for Ruby apps is now complete! We’d love for you to dive in and give it a try.
 
 Check out our updated [getting started guide](https://guides.hanamirb.org/v2.1/introduction/getting-started/) for your first steps in building a full stack, database-backed Hanami app. You’re only a few commands away:
 
@@ -223,6 +226,8 @@ $ cd my_app
 $ bundle exec hanami dev
 $ open http://localhost:2300
 ```
+
+After this, we’d love to hear your feedback about this release. Come and join us over on [the community forum](https://discourse.hanamirb.org). Once you’re signed up, you’ll be able to join us for chat as well as the regular forum discussions. Come say hi!
 
 _Thank you from [Tim Riley](https://github.com/timriley)._
 
