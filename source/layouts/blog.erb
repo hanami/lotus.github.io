@@ -25,14 +25,6 @@
         <div class="block-foreground">
           <h1 class="block-title"><%= article_title(current_page) %></h1>
           <h4 class="text-muted">Posted by <strong><%= article_author(current_page) %></strong> on <em><%= article_date(current_page) %></em></h4>
-          <button class="btn btn-default btn-outline m-t">
-            <span class="icon icon-facebook"></span>
-            Share
-          </button>
-          <button class="btn btn-default btn-outline m-t">
-            <span class="icon icon-twitter"></span>
-            Tweet
-          </button>
         </div>
         <div class="block-background">
           <%= article_image(current_page) %>
@@ -52,33 +44,8 @@
               <%= current_page.body %>
             </div>
 
-           <hr>
-
-           <a href="https://github.com/hanami/hanami" title="Star on GitHub" target="_blank" class="btn btn-default-outline">
-             <span class="icon icon-github"></span>
-             Star
-           </a>
-           <a href="https://www.facebook.com/sharer/sharer.php?u=<%= encode_text(absolute_url(current_page)) %>" title="Like on Facebook" class="btn btn-default-outline" target="_blank">
-             <span class="icon icon-thumbs-up"></span>
-             Like
-           </a>
-           <a href="https://twitter.com/home?status=<%= encode_text("#{ article_title(current_page) } - #{ absolute_url(current_page) } /via @hanamirb #hanamirb") %>" title="Share on Twitter" target="_blank" class="btn btn-default-outline">
-             <span class="icon icon-twitter"></span>
-             Tweet
-           </a>
-           <a href="https://news.ycombinator.com/submitlink?u=<%= encode_text(absolute_url(current_page)) %>&t=<%= article_title(current_page) %>" class="btn btn-default-outline" title="Vote on HackerNews">
-             <span class="icon"><strong>HN</strong></span>
-             Vote
-           </a>
-            <a href="http://www.reddit.com/submit?url=<%= encode_text(absolute_url(current_page)) %>" target="_blank" title="Share on Reddit" class="btn btn-default-outline">
-             <span class="icon"><strong>R</strong></span>
-             Share
-            </a>
-
             <br>
             <br>
-
-            <%#= partial 'mailing_list' %>
           </div>
         </div>
       </div>
