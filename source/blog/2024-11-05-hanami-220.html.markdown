@@ -1,6 +1,6 @@
 ---
 title: "Hanami 2.2: Persistence pays off"
-date: 2024-11-05 12:00:00 UTC
+date: 2024-11-05 10:45:00 UTC
 tags: announcements
 author: Tim Riley
 image: true
