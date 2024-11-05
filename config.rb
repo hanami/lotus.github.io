@@ -105,7 +105,7 @@ helpers do
   end
 
   def hanami_version
-    "2.1.0"
+    "2.2.0"
   end
 
   def hanami_release_date
