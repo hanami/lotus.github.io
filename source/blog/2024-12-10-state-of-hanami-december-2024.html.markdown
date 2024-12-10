@@ -1,6 +1,6 @@
 ---
 title: State of Hanami, December 2024
-date: 2024-12-10 10:18:00 UTC
+date: 2024-12-10 10:30:00 UTC
 tags: announcements
 author: Tim Riley
 image: true
@@ -8,11 +8,11 @@ excerpt: >
   Everything we did this year, and what we’re looking forward to in the next. A new kind of update!
 ---
 
-Welcome to the first **State of Hanami** update! 🌸
+Welcome to your first **State of Hanami** update! 🌸
 
 There’s plenty going on around Hanami. With these updates, I want to make it easy for everyone in the community to keep up. We’ll share our recent achievements, as well as our plans for what’s coming next.
 
-We’ll bring you these updates twice a year. This first update is a special one, though, because we get to cover all of 2024!
+We’ll bring you these updates twice a year. This one is special, though, because we get to cover all of 2024!
 
 ## Two major releases
 
@@ -25,7 +25,7 @@ Two years after we brought you [Hanami 2.0](https://hanamirb.org/blog/2022/11/22
 
 ## New leadership
 
-This year we managed [a smooth transition of project leadership](https://hanamirb.org/blog/2024/04/04/new-leadership-for-hanami/), with Luca Guidi retiring and myself taking on the role of lead. I’m happy to be here!
+In April we managed [a smooth transition of project leadership](https://hanamirb.org/blog/2024/04/04/new-leadership-for-hanami/), with Luca Guidi retiring and myself taking on the role of lead. I’m happy to be here!
 
 ## An expanded contributor group
 
@@ -37,7 +37,7 @@ This year we welcomed a number of folks to our contributors group:
 - [Kyle Plump](https://github.com/kyleplump), who brings great energy and is ready to help with issues of all kinds.
 - [Aaron Moodie](https://github.com/aaronmoodie), the designer behind our [shiny new welcome screen](https://hanamirb.org/blog/2024/11/05/hanami-220/), and our soon-to-be shiny new website (more on this later!).
 
-We’ve also enjoyed continued help from users and contributors [Paweł Świątkowski](https://github.com/katafrakt), [Sven Schwyn](https://github.com/svoop), [Pat Allen](https://github.com/pat), along with one [especially amazing router fix](https://github.com/hanami/router/pull/273) from [Damian C. Rossney](https://github.com/dcr8898).
+We’ve also enjoyed continued help from users and contributors [Paweł Świątkowski](https://github.com/katafrakt), [Sven Schwyn](https://github.com/svoop), [Pat Allen](https://github.com/pat), as well as [Damian C. Rossney](https://github.com/dcr8898) who brought us this [especially amazing router fix](https://github.com/hanami/router/pull/273).
 
 Thank you to these fine humans above, and to everyone else who has contributed to Hanami in 2024!
 
