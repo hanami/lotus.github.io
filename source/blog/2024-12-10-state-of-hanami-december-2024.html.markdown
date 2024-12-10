@@ -37,7 +37,7 @@ This year we welcomed a number of folks to our contributors group:
 - [Kyle Plump](https://github.com/kyleplump), who brings great energy and is ready to help with issues of all kinds.
 - [Aaron Moodie](https://github.com/aaronmoodie), the designer behind our [shiny new welcome screen](https://hanamirb.org/blog/2024/11/05/hanami-220/), and our soon-to-be shiny new website (more on this later!).
 
-We’ve also enjoyed continued help from users and contributors [Paweł Świątkowski](https://github.com/katafrakt), [Sven Schwyn](https://github.com/svoop), [Pat Allen](https://github.com/pat), as well as [Damian C. Rossney](https://github.com/dcr8898) who brought us this [especially amazing router fix](https://github.com/hanami/router/pull/273).
+We’ve also enjoyed continued help from users and contributors [Paweł Świątkowski](https://github.com/katafrakt), [Sven Schwyn](https://github.com/svoop), [Pat Allan](https://github.com/pat), as well as [Damian C. Rossney](https://github.com/dcr8898) who brought us this [especially amazing router fix](https://github.com/hanami/router/pull/273).
 
 Thank you to these fine humans above, and to everyone else who has contributed to Hanami in 2024!
 
