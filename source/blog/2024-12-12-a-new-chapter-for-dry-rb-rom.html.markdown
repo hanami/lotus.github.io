@@ -8,7 +8,7 @@ excerpt: >
 
 ---
 
-After 10 years working on [dry-rb](https://dry-rb.org/), and 15 years on DataMapper and now [Ruby Object Mapper](https://rom-rb.org/) (aka ROM), Peter Solnica is retiring from the dry-rb and ROM core teams.
+After 10 years working on [dry-rb](https://dry-rb.org/), and 15 years on DataMapper and now [Ruby Object Mapper](https://rom-rb.org/) (aka ROM), Peter Solnica [is retiring from the dry-rb and ROM core teams](https://solnic.dev/retiring-from-the-core-teams).
 
 I’d like to extend my deepest thanks to Peter for all his contributions to Ruby open source software. As a co-founder of these projects, Peter has put thousands of hours into a body of work that has benefited the entire community and changed the way we think about Ruby.
 
